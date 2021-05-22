@@ -7,4 +7,10 @@ connectDB();
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
+//@Define routes
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/posts', require('./routes/posts'))
+app.use('/api/profile', require('./routes/profile'))
+app.use('/api/users', require('./routes/users'))
+
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
