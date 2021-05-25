@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://fahim:fahim75@cluster0.dtchn.mongodb.net/MERN-1?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://fahim:fahim75@cluster0.dtchn.mongodb.net/MERN-1?retryWrites=true&w=majority",
+    "jwtSecret": "blahblah1975"
 }

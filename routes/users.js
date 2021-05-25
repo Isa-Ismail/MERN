@@ -5,7 +5,7 @@ const User = require('../models/user')
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
+const config = require('config')
 //@route    Post api/users
 //@desc     Register user
 //@access   Public
@@ -55,15 +55,24 @@ async (req, res) => {
     await user.save();
     
     //return jsonwebtoken
+    const payload = {
+        user: {
+            id: user.id
+        }
+    }
 
+    jwt.sign(payload, config.get('jwtSecret'), {expiresIn: 360000}, (err, token) => {
+        if (err) throw err;
+        res.json({token})
+    })
 
     }catch(err){
-        console.log(err.message)
-        res.status(500)
+        console.error(err.message)
+        res.status(500).send('server issue')
     }
 
     console.log(req.body)
-    res.send(`User registered`)
+    // res.send(`User registered`)
 })
 
 module.exports = router
