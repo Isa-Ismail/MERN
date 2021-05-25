@@ -4,6 +4,7 @@ const router = express.Router()
 const User = require('../models/user')
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 //@route    Post api/users
 //@desc     Register user
@@ -23,6 +24,7 @@ async (req, res) => {
     const {name, email, password} = req.body
 
     try{
+        
     //if users exists
     let user = await User.findOne({ email })
 
@@ -30,6 +32,7 @@ async (req, res) => {
         console.log('exists dumb client')
         return res.status(400).json({ errors: [{msg:'User already exists'}]})
     }
+
     //get user's gravatar
     const avatar = gravatar.url(email, {
         s:'200',
@@ -43,6 +46,7 @@ async (req, res) => {
         avatar,
         password
     })
+
     //encrypt password
     const salt = await bcrypt.genSalt(10);
 
@@ -51,6 +55,8 @@ async (req, res) => {
     await user.save();
     
     //return jsonwebtoken
+
+
     }catch(err){
         console.log(err.message)
         res.status(500)
