@@ -1,6 +1,7 @@
 const express = require('express')
 const auth = require('../middleware/auth')
 const router = express.Router()
+const bcrypt = require('bcryptjs')
 const {check, validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 const config = require('config')
@@ -42,32 +43,18 @@ async (req, res) => {
     //if users exists
     let user = await User.findOne({ email })
 
-    if(user){
-        console.log('exists dumb client')
-        return res.status(400).json({ errors: [{msg:'User already exists'}]})
+    if(!user){
+        console.log('Not found')
+        return res.status(400).json({ errors: [{msg:'Invalid Credentials'}]})
     }
 
-    //get user's gravatar
-    const avatar = gravatar.url(email, {
-        s:'200',
-        r:'pg',
-        d:'mm'
-    })
-    // inserting gravatar to user object
-    user = new User({
-        name,
-        email,
-        avatar,
-        password
-    })
+    const isMatch = await bcrypt.compare(password, user.password)
+    console.log(isMatch)
 
-    //encrypt password
-    const salt = await bcrypt.genSalt(10);
-
-    user.password = await bcrypt.hash(password, salt);
-
-    await user.save();
-    
+    if(!isMatch){
+        console.log('password didnt match')
+        return res.status(400).json({ errors: [{msg:'Invalid Credentials'}]})
+    }else{
     //return jsonwebtoken
     const payload = {
         user: {
@@ -79,7 +66,7 @@ async (req, res) => {
         if (err) throw err;
         return res.json({token})
     })
-
+}
     }catch(err){
         console.error(err.message)
         res.status(500).send('server issue')
