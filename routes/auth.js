@@ -55,6 +55,7 @@ async (req, res) => {
         console.log('password didnt match')
         return res.status(400).json({ errors: [{msg:'Invalid Credentials'}]})
     }else{
+    console.log(user)    
     //return jsonwebtoken
     const payload = {
         user: {
