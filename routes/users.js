@@ -26,9 +26,10 @@ async (req, res) => {
     try{
         
     //if users exists
-    let user = await User.findOne({ email })
+    let user = await User.findOne({ email:email })
 
     if(user){
+        console.log(email)
         console.log('exists dumb client')
         return res.status(400).json({ errors: [{msg:'User already exists'}]})
     }
