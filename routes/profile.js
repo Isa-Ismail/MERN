@@ -66,9 +66,32 @@ router.post('/', [
       if(githubusername){profileFields.githubusername = githubusername}
       if(skills){profileFields.skills = skills.split(',').map(e => e.trim())}
 
+      //@ Creating social profile object
+      profileFields.social = {}
+      if(youtube){profileFields.social.youtube = youtube}
+      if(facebook){profileFields.social.facebook = facebook}
+      if(instagram){profileFields.social.instagram = instagram}
+      if(twitter){profileFields.social.twitter = twitter}
+      if(linkedin){profileFields.social.linkedin = linkedin}
 
+      try{
+          let profile = await Profile.findOne({user: req.user.id})
+          console.log(profile)
+          if(profile){
+              //@ update
+              profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set:profileFields}, {new: true})
+              return res.json(profile)
+          }
+          
+          //@create
+          profile = new Profile (profileFields)
+          await profile.save()
+          return res.json(profile)
+
+      }catch(err){
+          res.status(500).send('server error')
+      }
       console.log(profileFields.skills)
-      res.send(profileFields)
 })
 
 module.exports = router
