@@ -9,34 +9,34 @@ import Card from './Components/play/cards'
 import Footer from './Components/Footer'
 import Home from './Components/Home'
 
-const App = ()=> {
+const App = () => {
     
    return( 
             <Switch> 
-               <div className='container'>
+               <div className ='container'>
                  <Nav />
                 
-                 <Route exact path='/'>
+                 <Route exact path ='/'>
                     <Home />
                  </Route>
 
-                 <Route path='/form'>
+                 <Route path ='/form'>
                     <Form />
                  </Route>
                  
-                 <Route path='/products'>
+                 <Route path ='/products'>
                     <Cards />
                  </Route>          
                  
-                 <Route path='/cart'>
+                 <Route path ='/cart'>
                     <Card />
                  </Route> 
 
-                 <Route path='/content'>
+                 <Route path ='/content'>
                     <Content />
                  </Route>       
 
-                 <Route path='/indi/:id'>
+                 <Route path ='/indi/:id'>
                     <Individual />
                  </Route> 
 
