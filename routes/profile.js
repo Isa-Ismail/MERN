@@ -11,8 +11,7 @@ const auth = require('../middleware/auth')
 
 router.get('/me', auth, async (req, res) => {
     try{
-        const profile = await Profile.findOne({ user: req.body.id}).populate('user', [ 'name', 'avatar' ])
-
+        const profile = await Profile.findOne({ user: req.user.id}).populate('user', [ 'name', 'avatar' ])
         if(!profile){
             return res.status(400).json({msg:'No profile found'})
         }
@@ -94,5 +93,19 @@ router.post('/', [
       }
       console.log(profileFields.skills)
 })
+
+//@route    GET api/profile
+//@desc     GET all profile
+//@access   Public
+router.get('/', async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate('user', ['name', 'avatar'])
+        res.json(profiles)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send(`Server error`)
+    }
+})
+
 
 module.exports = router
