@@ -12,7 +12,7 @@ const config = require('config')
 //@access   Public
 
 router.post('/', [
-    check('name', 'name is required').not().isEmpty(),
+    check('name', 'name is required').notEmpty(),
     check('email','E-mail is required,').isEmail(),
     check('password', 'password is required (at least 6 digits)').isLength({ min:6 })
 ],
