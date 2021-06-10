@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://fahim:fahim75@cluster0.dtchn.mongodb.net/MERN-1?retryWrites=true&w=majority",
-    "jwtSecret": "blahblah1975"
+    "jwtSecret": "blahblah1975",
+    "githubClientId": "c8dd043bd97179cce5b2",
+    "githubSecret": "ab532b75263f39925e901f80cc8eb027345ef282"
 }
