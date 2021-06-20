@@ -172,4 +172,92 @@ router.put('/unlike/:id', auth, async( req, res ) => {
     }
 })
 
+//@route    POST api/posts/comment/:id
+//@desc     POST comment by id
+//@access   Private
+
+router.post('/comment/:id', [
+    check('text', 'text is required').notEmpty(),
+], auth, async (req, res) => {
+    
+    const errors = validationResult(req)
+    
+    console.log(errors)
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({ error: errors.array() })
+    }
+
+    try {
+        const user = await User.findById( req.user.id ).select('-password')
+        const post = await Post.findById( req.params.id )
+        console.log(user)
+        if(!post){
+            return res.status(404).json({msg:'POST not found'})
+        }
+        const newComment = {
+            text: req.body.text,
+            name: user.name,
+            avatar: user.avatar,
+            user: req.user.id
+        }
+
+        post.comments.unshift(newComment)
+
+        await post.save()
+
+        res.json(post.comments)
+
+    } catch (err) {
+        console.error(err.message)
+        if(err.kind === 'ObjectId'){
+            return res.status(404).json({msg:'POST not found'})
+        }
+        res.status(500).send(`Server Error`)
+    }
+})
+
+//@route    DELETE api/posts/comment/:id
+//@desc     DELETE comment by id
+//@access   Private
+
+router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
+    
+    try {
+        
+        const post = await Post.findById( req.params.id )
+
+        if(!post){
+            return res.status(404).json({msg:'POST not found'})
+        }
+
+        // pulling out the comment
+        const comment = post.comments.find(
+            (comment) => comment.id === req.params.comment_id
+          )
+        //making sure it exists
+        if (!comment) {
+            return res.status(404).json({ msg: 'Comment does not exist' });
+          }  
+        //making sure user is authorized  
+        if (comment.user.toString() !== req.user.id) {
+            return res.status(401).json({ msg: 'User not authorized' });
+          }
+      
+
+        post.comments = post.comments.filter( e => e.id !== req.params.comment_id)
+
+        await post.save()
+
+        res.json(post.comments)
+
+    } catch (err) {
+        console.error(err.message)
+        if(err.kind === 'ObjectId'){
+            return res.status(404).json({msg:'POST not found'})
+        }
+        res.status(500).send(`Server Error`)
+    }
+})
+
 module.exports = router
