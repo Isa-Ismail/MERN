@@ -8,7 +8,7 @@ const config = require('config')
 const auth = require('../middleware/auth')
 
 //@route    POST api/posts
-//@desc     POST a comment
+//@desc     POST a post
 //@access   Private
 
 router.post('/', [
@@ -99,7 +99,7 @@ router.delete('/:id', auth, async (req, res) => {
             return res.status(404).json({msg:'USER not found'})
         }
 
-        post.remove()
+        await post.remove()
 
         res.json({ msg: 'post removed' })
 
@@ -112,5 +112,64 @@ router.delete('/:id', auth, async (req, res) => {
     }
 })
 
+//@route    PUT api/posts/like/:id
+//@desc     PUT post by id
+//@access   Private
+
+router.put('/like/:id', auth, async( req, res ) => {
+    try {
+        const post = await Post.findById( req.params.id )
+
+        if(!post){
+            return res.status(404).json({ msg: 'Post not found' })
+        }
+        // checking if post is already liked
+        let likes = post.likes.filter(like => like.user.toString() === req.user.id)
+
+        if(likes.length > 0){
+            console.log(likes)
+            return res.status(400).json({ msg: 'post already liked' })
+        }else{
+            post.likes.unshift({ user: req.user.id })
+            await post.save()
+            res.json(post.likes)
+        }
+
+    }catch(err){
+        console.error(err)
+        res.status(500).json(`Server issue`)
+    }
+})
+
+//@route    PUT api/posts/like/:id
+//@desc     PUT post by id
+//@access   Private
+
+router.put('/unlike/:id', auth, async( req, res ) => {
+    try {
+        const post = await Post.findById( req.params.id )
+
+        if(!post){
+            return res.status(404).json({ msg: 'Post not found' })
+        }
+        // checking if post is already liked
+        let likes = post.likes.filter(like => like.user.toString() === req.user.id)
+
+        if(likes.length === 0){
+            console.log(likes)
+            return res.status(400).json({ msg: 'post didnt liked' })
+        }else{
+            post.likes = post.likes.filter(like => like.user.toString() !== req.user.id)
+
+            await post.save()
+
+            res.json(post.likes)
+        }
+
+    }catch(err){
+        console.error(err)
+        res.status(500).json(`Server issue`)
+    }
+})
 
 module.exports = router
