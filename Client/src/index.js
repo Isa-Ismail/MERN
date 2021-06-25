@@ -4,7 +4,7 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import { BrowserRouter as Router} from 'react-router-dom'
 import reportWebVitals from "./reportWebVitals";
-import All from './Resource/Reducers'
+import All from './Utils/Resource/Reducers'
 import './index.css'
 //import './BootStrap/bootstrap.min.css'
 import App from './App'

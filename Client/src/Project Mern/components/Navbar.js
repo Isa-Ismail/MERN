@@ -79,11 +79,11 @@ export default function BackToTop(props) {
         <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Recruit</Typography></Link>
         </Toolbar>
         <Toolbar>
-        <Link style={{color:'#333', marginLeft:'40rem'}} to='/cart'><Cart /></Link>
+        <Link style={{color:'#333', marginLeft:'47rem'}} to='/cart'><Cart /></Link>
         </Toolbar>
-        <Toolbar>
+        {/* <Toolbar>
         <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Sign up</Typography></Link>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
       <Container>
