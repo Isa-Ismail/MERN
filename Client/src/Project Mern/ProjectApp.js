@@ -4,14 +4,16 @@ import { Route, Switch, Link } from 'react-router-dom'
 
 const ProjectApp = () => {
     return (
-        <Switch>
+        <>
             <Nav />
-            <div className = 'container'>
-                <Route path = '/'>
+            <Switch>
+                <div className = 'container'>
+                    <Route path = '/'>
 
-                </Route>
-            </div>
-        </Switch>
+                    </Route>
+                </div>
+            </Switch>
+        </>    
     )
 }
 

@@ -62,6 +62,27 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+
+  const NonAuthenticated = (
+    <>
+    <Toolbar>
+        <Link style={{color:'red', marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Up</Typography></Link>
+    </Toolbar>
+      <Toolbar>
+          <Link style={{color:'red'}} to='/form'><Typography variant="h6">Sign in</Typography></Link>
+      </Toolbar>  
+    </>
+    )
+
+  const Authenticated = (
+    <>
+        <Toolbar>
+            <Link style={{color:'red', marginLeft: '45rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
+        </Toolbar>
+    </>
+    )
+
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -78,12 +99,9 @@ export default function BackToTop(props) {
         <Toolbar>
         <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Recruit</Typography></Link>
         </Toolbar>
-        <Toolbar>
-        <Link style={{color:'#333', marginLeft:'47rem'}} to='/cart'><Cart /></Link>
-        </Toolbar>
-        {/* <Toolbar>
-        <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Sign up</Typography></Link>
-        </Toolbar> */}
+          {
+            Authenticated
+          }
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
       <Container>

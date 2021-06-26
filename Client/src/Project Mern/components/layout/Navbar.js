@@ -62,25 +62,36 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+
+  const authenticated = () => {
+    
+    return(
+    <Toolbar>
+        <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
+    </Toolbar>
+    
+    )
+  }
+
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar style = {{display:'flex', flexDirection:'row', backgroundColor:'#fff'}}>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/'><Typography variant="h6">Home</Typography></Link>
+        <Link style={{color:'#333'}} to='/'><Typography variant="h6">Dev social media</Typography></Link>
         </Toolbar>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Officials</Typography></Link>
+        <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Dashboard</Typography></Link>
         </Toolbar>
         <Toolbar>
-          <Link style={{color:'#333'}} to='/products'><Typography variant="h6">Products</Typography></Link>
+          <Link style={{color:'#333'}} to='/products'><Typography variant="h6">Posts</Typography></Link>
         </Toolbar>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Recruit</Typography></Link>
+        <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Developers</Typography></Link>
         </Toolbar>
-        <Toolbar>
-        <Link style={{color:'#333', marginLeft:'47rem'}} to='/cart'><Cart /></Link>
-        </Toolbar>
+        {
+
+        }
         {/* <Toolbar>
         <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Sign up</Typography></Link>
         </Toolbar> */}
