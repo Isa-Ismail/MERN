@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom'
-import Form from './Utils/Components/Form'
-import Nav from './Utils/Components/Navbar'
-import Cards from './Utils/Components/Cards'
-import Content from './Utils/Components/Content';
-import Individual from './Utils/Components/Individual'
-import Card from './Utils/Components/play/cards'
-import Footer from './Utils/Components/Footer'
-import Home from './Utils/Components/Home'
+import Form from './Components/Form'
+import Nav from './Components/Navbar'
+import Cards from './Components/Cards'
+import Content from './Components/Content';
+import Individual from './Components/Individual'
+import Card from './Components/play/cards'
+import Footer from './Components/Footer'
+import Home from './Components/Home'
 
 const App = () => {
     

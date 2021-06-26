@@ -12,7 +12,6 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import {Link} from 'react-router-dom';
-import Cart from './cart'
 import {useSelector, useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
@@ -62,6 +61,7 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+
     
     const NonAuthenticated = (
       <>
@@ -77,7 +77,7 @@ export default function BackToTop(props) {
     const Authenticated = (
       <>
           <Toolbar>
-              <Link style={{color:'red', marginLeft: '45rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
+              <Link style={{color:'red', marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
           </Toolbar>
       </>
       )
@@ -87,7 +87,7 @@ export default function BackToTop(props) {
       <CssBaseline />
       <AppBar style = {{display:'flex', flexDirection:'row', backgroundColor:'#fff'}}>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/'><Typography variant="h6">Dev social media</Typography></Link>
+        <Link style={{color:'#333'}} to='/'><Typography variant="h6">DevMedia</Typography></Link>
         </Toolbar>
         <Toolbar>
         <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Dashboard</Typography></Link>

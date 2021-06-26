@@ -1,19 +1,26 @@
-import React from 'react';
-import Nav from '../Utils/Components/Navbar'
+import React from 'react'
+import Nav from './components/layout/Navbar'
 import { Route, Switch, Link } from 'react-router-dom'
+import Landing from './components/layout/Landing'
+import Footer from './components/layout/Footer'
 
 const ProjectApp = () => {
     return (
-        <>
-            <Nav />
-            <Switch>
                 <div className = 'container'>
-                    <Route path = '/'>
+                    
+                    <Nav />
 
-                    </Route>
-                </div>
-            </Switch>
-        </>    
+                        <Switch>
+
+                            <Route exact path = '/'>
+                                <h1>home</h1>
+                            </Route>
+
+                        </Switch>  
+
+                    <Footer />
+
+                </div>   
     )
 }
 
