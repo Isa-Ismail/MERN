@@ -16,7 +16,7 @@ const ProjectApp = () => {
                                 <h1>home</h1>
                             </Route>
 
-                        </Switch>  
+                        </Switch>
 
                     <Footer />
 
