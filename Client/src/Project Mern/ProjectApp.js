@@ -3,6 +3,8 @@ import Nav from './components/layout/Navbar'
 import { Route, Switch, Link } from 'react-router-dom'
 import Landing from './components/layout/Landing'
 import Footer from './components/layout/Footer'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
 const ProjectApp = () => {
     return (
@@ -16,8 +18,12 @@ const ProjectApp = () => {
                                 <Landing />
                             </Route>
 
-                            <Route exact path = '/profile'>
-                                <h2>this is profile page</h2>
+                            <Route exact path = '/login'>
+                                <Login/>
+                            </Route>
+
+                            <Route exact path = '/register'>
+                                <Register/>
                             </Route>
 
                         </Switch>

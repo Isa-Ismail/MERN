@@ -178,7 +178,7 @@ p {
 
 .section,
 .container {
-    width: auto;
+    width: inherit;
     margin: 0 auto;
     /* max-width: var(--max-width); */
 }

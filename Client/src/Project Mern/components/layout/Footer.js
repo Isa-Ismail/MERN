@@ -12,7 +12,7 @@ const Footer = () => {
              <footer className="footer">
                 <div className="logo-contact">
                     <div className="logo">
-                    <img src="img/LittleCake%20Logo.png" alt="littlecake logo" />
+                    <img src="https://image.freepik.com/free-vector/letter-f-logo-abstract_8677-73.jpg" alt="littlecake logo" />
                     </div>
                     <h2>About Us</h2>
                     <p>Our goal is a healthy and long life on this beautiful planet in this part of the sweet Universe.</p>
