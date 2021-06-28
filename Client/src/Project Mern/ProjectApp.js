@@ -13,7 +13,11 @@ const ProjectApp = () => {
                         <Switch>
 
                             <Route exact path = '/'>
-                                <h1>home</h1>
+                                <Landing />
+                            </Route>
+
+                            <Route exact path = '/profile'>
+                                <h2>this is profile page</h2>
                             </Route>
 
                         </Switch>

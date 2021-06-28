@@ -12,6 +12,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import {Link} from 'react-router-dom';
+import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
@@ -61,15 +62,17 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+  
+    const [auth, setAuth] = useState(false)
 
-    
+
     const NonAuthenticated = (
       <>
-      <Toolbar>
-          <Link style={{color:'red', marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Up</Typography></Link>
-      </Toolbar>
         <Toolbar>
-            <Link style={{color:'red'}} to='/form'><Typography variant="h6">Sign in</Typography></Link>
+            <Link style={{color:'red', marginLeft: '50rem '}} to='/form'><Typography variant="h6">Register</Typography></Link>
+        </Toolbar>  
+        <Toolbar>
+            <Link style={{color:'red'}} to='/form'><Typography variant="h6">Login</Typography></Link>
         </Toolbar>  
       </>
       )
@@ -77,29 +80,30 @@ export default function BackToTop(props) {
     const Authenticated = (
       <>
           <Toolbar>
-              <Link style={{color:'red', marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
+              <Link style={{color:'red'}} to='/form'><Typography variant="h6">Dashboard</Typography></Link>
           </Toolbar>
+          <Toolbar>
+              <Link style={{color:'red'}} to='/form'><Typography variant="h6">Post</Typography></Link>
+          </Toolbar>
+          <Toolbar>
+              <Link style={{color:'red',marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
+          </Toolbar>
+          
       </>
       )
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar style = {{display:'flex', flexDirection:'row', backgroundColor:'#fff'}}>
+      <AppBar style = {{display:'flex', flexDirection:'row', backgroundColor: 'hsl(205, 77%, 27%)', flexWrap: 'wrap'}}>
         <Toolbar>
         <Link style={{color:'#333'}} to='/'><Typography variant="h6">DevMedia</Typography></Link>
         </Toolbar>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Dashboard</Typography></Link>
-        </Toolbar>
-        <Toolbar>
-          <Link style={{color:'#333'}} to='/products'><Typography variant="h6">Posts</Typography></Link>
-        </Toolbar>
-        <Toolbar>
-        <Link style={{color:'#333'}} to='/form'><Typography variant="h6">Developers</Typography></Link>
+        <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Developers</Typography></Link>
         </Toolbar>
         {
-            Authenticated
+            auth? Authenticated: NonAuthenticated
         }
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
