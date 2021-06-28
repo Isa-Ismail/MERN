@@ -69,10 +69,10 @@ export default function BackToTop(props) {
     const NonAuthenticated = (
       <>
         <Toolbar>
-            <Link style={{color:'red', marginLeft: '50rem '}} to='/form'><Typography variant="h6">Register</Typography></Link>
+            <Link style={{color:'red', marginLeft: '50rem '}} to='/register'><Typography variant="h6">Register</Typography></Link>
         </Toolbar>  
         <Toolbar>
-            <Link style={{color:'red'}} to='/form'><Typography variant="h6">Login</Typography></Link>
+            <Link style={{color:'red'}} to='/login'><Typography variant="h6">Login</Typography></Link>
         </Toolbar>  
       </>
       )
@@ -80,10 +80,10 @@ export default function BackToTop(props) {
     const Authenticated = (
       <>
           <Toolbar>
-              <Link style={{color:'red'}} to='/form'><Typography variant="h6">Dashboard</Typography></Link>
+              <Link style={{color:'red'}} to='/dashboard'><Typography variant="h6">Dashboard</Typography></Link>
           </Toolbar>
           <Toolbar>
-              <Link style={{color:'red'}} to='/form'><Typography variant="h6">Post</Typography></Link>
+              <Link style={{color:'red'}} to='/post'><Typography variant="h6">Post</Typography></Link>
           </Toolbar>
           <Toolbar>
               <Link style={{color:'red',marginLeft: '40rem'}} to='/form'><Typography variant="h6">Sign Out</Typography></Link>
@@ -100,7 +100,7 @@ export default function BackToTop(props) {
         <Link style={{color:'#333'}} to='/'><Typography variant="h6">DevMedia</Typography></Link>
         </Toolbar>
         <Toolbar>
-        <Link style={{color:'#333'}} to='/content'><Typography variant="h6">Developers</Typography></Link>
+        <Link style={{color:'#333'}} to='/developers'><Typography variant="h6">Developers</Typography></Link>
         </Toolbar>
         {
             auth? Authenticated: NonAuthenticated
