@@ -1,11 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Typewriter from 'typewriter-effect';
 
 const Landing = () => {
     return (
         <>
             <div className = 'landing' style ={{display: 'flex', justifyContent: 'center'}}>
                     <div>
+                        <h2><Typewriter
+                        options={{
+                            strings: ['Welcome to Dev Media', 'All your soft works matter'],
+                            autoStart: true,
+                            loop: true,
+                            deleteSpeed: 5,
+                            delay: 50
+                        }}
+                        /></h2>
                         <h1 style = {{marginTop: '10rem'}}>Developer Media</h1><br/>
                         <h2>Create a developer profile/portfolio, share posts and get help from other developers</h2>
                         <br />

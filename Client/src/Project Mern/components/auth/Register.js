@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useState} from 'react'
+import axios from 'axios'
 
 function Copyright() {
   return (
@@ -55,6 +56,8 @@ export default function SignUp() {
       email: '',
       password: ''
   })
+  
+  const {name, email, password} = register
 
   return (
     <Container component="main" maxWidth="xs">
@@ -135,14 +138,39 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick = { (e) => {
+            onClick = { async (e) => {
                 e.preventDefault()
-                if( register.name && register.email && register.password){
-                setRegister( {
+                if( name && email && password){
+
+                  const newUser = {
+                    name,
+                    email,
+                    password
+                  }
+
+                  try {
+                    const config = {
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }
+                    
+                    const body = JSON.stringify(newUser)
+
+                    const res = await axios.post('/api/users', body, config)
+                    
+                    console.log(res.data);
+                  
+                  } catch (err) {
+                    console.error(err.response.data);
+                  }
+                
+                  setRegister( {
                     name: '',
                     email: '',
                     password : ''
                 } )
+
               }else{
                   alert('please provide required credentials')
               }
