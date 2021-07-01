@@ -56,6 +56,8 @@ export default function SignIn() {
       password: ''
   })
 
+  const {email, password} = form
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -76,7 +78,7 @@ export default function SignIn() {
             label="Email Address"
             onChange = { (e) => setForm ( {...form, email: e.target.value} ) }
             name="email"
-            value= {form.email}
+            value= {email}
             autoComplete="email"
             autoFocus
           />
@@ -87,7 +89,7 @@ export default function SignIn() {
             fullWidth
             onChange = { (e) => setForm ( {...form, password: e.target.value} ) }
             name="password"
-            value= {form.password}
+            value= {password}
             label="Password"
             type="password"
             id="password"
@@ -105,11 +107,12 @@ export default function SignIn() {
             className={classes.submit}
             onClick = { (e) => {
                 e.preventDefault()
-                if(form.email && form.password){
-                setForm( {
+                if(email && password){
+                  console.log(form)
+                  setForm( {
                     email: '',
                     password : ''
-                } )
+                  } )
               }else{
                   alert('please provide required credentials')
               }
