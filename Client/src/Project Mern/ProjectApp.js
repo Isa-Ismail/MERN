@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from './components/layout/Navbar'
+import {Provider} from 'react-redux'
 import { Route, Switch, Link } from 'react-router-dom'
 import Landing from './components/layout/Landing'
 import Footer from './components/layout/Footer'
@@ -8,6 +9,7 @@ import Register from './components/auth/Register'
 
 const ProjectApp = () => {
     return (
+        <Provider store = {}>
                 <div className = 'container'>
                     
                     <Nav />
@@ -30,7 +32,8 @@ const ProjectApp = () => {
 
                     <Footer />
 
-                </div>   
+                </div>  
+        </Provider> 
     )
 }
 

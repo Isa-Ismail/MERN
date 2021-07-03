@@ -1,21 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import reportWebVitals from "./reportWebVitals";
-import All from './Utils/Resource/Reducers'
 import './index.css'
 //import './BootStrap/bootstrap.min.css'
 import ProjectApp from './Project Mern/ProjectApp'
 
-const store = createStore(All, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
 ReactDOM.render(
   <Router>
-      <Provider store={store}>
         <ProjectApp />
-      </Provider>
   </Router>,
   document.getElementById('root')
 );
