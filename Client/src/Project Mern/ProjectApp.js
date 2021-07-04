@@ -9,7 +9,7 @@ import Register from './components/auth/Register'
 
 const ProjectApp = () => {
     return (
-        <Provider store = {}>
+    
                 <div className = 'container'>
                     
                     <Nav />
@@ -33,7 +33,7 @@ const ProjectApp = () => {
                     <Footer />
 
                 </div>  
-        </Provider> 
+        
     )
 }
 
