@@ -8,7 +8,7 @@ import ProjectApp from './Project Mern/ProjectApp'
 
 ReactDOM.render(
   <Router>
-        <ProjectApp />
+    <ProjectApp />
   </Router>,
   document.getElementById('root')
 );

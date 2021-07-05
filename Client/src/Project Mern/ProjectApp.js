@@ -6,10 +6,12 @@ import Landing from './components/layout/Landing'
 import Footer from './components/layout/Footer'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import store from './store'
+
 
 const ProjectApp = () => {
     return (
-    
+            <Provider store = { store }> 
                 <div className = 'container'>
                     
                     <Nav />
@@ -31,9 +33,9 @@ const ProjectApp = () => {
                         </Switch>
 
                     <Footer />
-
+                
                 </div>  
-        
+            </Provider>
     )
 }
 
