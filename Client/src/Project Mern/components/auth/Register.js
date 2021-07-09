@@ -16,6 +16,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import setAlert from '../../actions/alert'
 import { useSelector, useDispatch } from 'react-redux';
+import Alert from '../layout/Alert'
 
 function Copyright() {
   return (
@@ -53,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const data = useSelector(data => data.alert)
   const dispatch = useDispatch()
 
   const [register, setRegister] = useState ({
@@ -73,6 +75,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
+        <Alert />
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -146,7 +149,6 @@ export default function SignUp() {
                 e.preventDefault()
                 if( name && email && password){
 
-                  console.log('success')
                 //   const newUser = {
                 //     name,
                 //     email,
@@ -169,15 +171,14 @@ export default function SignUp() {
                 //   } catch (err) {
                 //     console.error(err.response.data);
                 //   }
-                
-                //   setRegister( {
-                //     name: '',
-                //     email: '',
-                //     password : ''
-                // } )
+                  setRegister( {
+                    name: '',
+                    email: '',
+                    password : ''
+                } )
 
               }else{
-                 dispatch(setAlert('Please provide necessary creddentials', 'danger'))
+                dispatch(setAlert('Please provide necessary credentials', 'danger'))
               }
             }
             }
