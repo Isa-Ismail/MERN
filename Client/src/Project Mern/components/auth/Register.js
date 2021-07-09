@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useState} from 'react'
 import axios from 'axios'
+import setAlert from '../../actions/alert'
+import { useSelector, useDispatch } from 'react-redux';
 
 function Copyright() {
   return (
@@ -50,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+
+  const dispatch = useDispatch()
 
   const [register, setRegister] = useState ({
       name: '',
@@ -142,37 +146,38 @@ export default function SignUp() {
                 e.preventDefault()
                 if( name && email && password){
 
-                  const newUser = {
-                    name,
-                    email,
-                    password
-                  }
+                  console.log('success')
+                //   const newUser = {
+                //     name,
+                //     email,
+                //     password
+                //   }
 
-                  try {
-                    const config = {
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    }
+                //   try {
+                //     const config = {
+                //       headers: {
+                //         'Content-Type': 'application/json'
+                //       }
+                //     }
                     
-                    const body = JSON.stringify(newUser)
+                //     const body = JSON.stringify(newUser)
 
-                    const res = await axios.post('/api/users', body, config)
+                //     const res = await axios.post('/api/users', body, config)
                     
-                    console.log(res.data);
+                //     console.log(res.data);
                   
-                  } catch (err) {
-                    console.error(err.response.data);
-                  }
+                //   } catch (err) {
+                //     console.error(err.response.data);
+                //   }
                 
-                  setRegister( {
-                    name: '',
-                    email: '',
-                    password : ''
-                } )
+                //   setRegister( {
+                //     name: '',
+                //     email: '',
+                //     password : ''
+                // } )
 
               }else{
-                  alert('please provide required credentials')
+                 dispatch(setAlert('Please provide necessary creddentials', 'danger'))
               }
             }
             }
