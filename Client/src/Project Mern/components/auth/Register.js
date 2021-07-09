@@ -149,28 +149,28 @@ export default function SignUp() {
                 e.preventDefault()
                 if( name && email && password){
 
-                //   const newUser = {
-                //     name,
-                //     email,
-                //     password
-                //   }
+                  const newUser = {
+                    name,
+                    email,
+                    password
+                  }
 
-                //   try {
-                //     const config = {
-                //       headers: {
-                //         'Content-Type': 'application/json'
-                //       }
-                //     }
+                  try {
+                    const config = {
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }
                     
-                //     const body = JSON.stringify(newUser)
+                    const body = JSON.stringify(newUser)
 
-                //     const res = await axios.post('/api/users', body, config)
+                    const res = await axios.post('/api/users', body, config)
                     
-                //     console.log(res.data);
+                    console.log(res.data);
                   
-                //   } catch (err) {
-                //     console.error(err.response.data);
-                //   }
+                  } catch (err) {
+                    console.error(err.response.data);
+                  }
                   setRegister( {
                     name: '',
                     email: '',
