@@ -8,9 +8,11 @@ const Alert = () => {
     return (
         <div>
             {data.map(alert => {
-                return(<p style = {{ color: 'red' }}>
+                return(
+                <p style = {{ color: 'red' }}>
                     {alert.msg}
-                </p>)
+                </p>
+                )
             })}
         </div>
     )
