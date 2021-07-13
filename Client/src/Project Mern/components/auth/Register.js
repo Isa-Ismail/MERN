@@ -17,6 +17,7 @@ import axios from 'axios'
 import setAlert from '../../actions/alert'
 import { useSelector, useDispatch } from 'react-redux';
 import Alert from '../layout/Alert'
+import registerUser from '../../actions/auth'
 
 function Copyright() {
   return (
@@ -75,6 +76,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
+        <br />
         <Alert />
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -146,39 +148,18 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
             onClick = { async (e) => {
+
                 e.preventDefault()
-                if( name && email && password){
 
-                  const newUser = {
-                    name,
-                    email,
-                    password
-                  }
+                dispatch(registerUser( {name, email, password} ))
 
-                  try {
-                    const config = {
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    }
-                    
-                    const body = JSON.stringify(newUser)
-
-                    const res = await axios.post('/api/users', body, config)
-                    
-                    console.log(res.data);
-                  
-                  } catch (err) {
-                    console.error(err.response.data);
-                  }
-                  setRegister( {
+                if(name && email && password){
+                setRegister( {
                     name: '',
                     email: '',
                     password : ''
-                } )
-
-              }else{
-                dispatch(setAlert('Please provide necessary credentials', 'danger'))
+                } )   
+            
               }
             }
             }
