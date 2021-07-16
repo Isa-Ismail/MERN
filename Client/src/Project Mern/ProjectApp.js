@@ -20,7 +20,7 @@ const ProjectApp = () => {
 
         store.dispatch(loadUser())
         
-    },[])
+    }, [])
 
     return (
             <Provider store = { store }> 

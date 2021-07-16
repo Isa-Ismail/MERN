@@ -14,6 +14,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useState} from 'react'
 import axios from 'axios'
+import { login } from '../../actions/auth'
+import { useDispatch, useSelector } from 'react-redux'
+import Alert from '../layout/Alert'
 
 function Copyright() {
   return (
@@ -49,7 +52,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  
   const classes = useStyles();
+
+  const dispatch = useDispatch()
 
   const [form, setForm] = useState ({
       email: '',
@@ -68,6 +74,9 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+
+        < Alert />
+        
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -107,7 +116,7 @@ export default function SignIn() {
             className={classes.submit}
             onClick = { (e) => {
                 e.preventDefault()
-                
+                dispatch(login( email, password ))
             }
             }
           >

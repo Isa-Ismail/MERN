@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  const data = useSelector(data => data.alert)
   const dispatch = useDispatch()
 
   const [register, setRegister] = useState ({
@@ -152,15 +151,7 @@ export default function SignUp() {
                 e.preventDefault()
 
                 dispatch(registerUser( {name, email, password} ))
-
-                if(name && email && password){
-                setRegister( {
-                    name: '',
-                    email: '',
-                    password : ''
-                } )   
-            
-              }
+                
             }
             }
           >
