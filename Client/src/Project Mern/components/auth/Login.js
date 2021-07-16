@@ -107,15 +107,7 @@ export default function SignIn() {
             className={classes.submit}
             onClick = { (e) => {
                 e.preventDefault()
-                if(email && password){
-                  console.log(form)
-                  setForm( {
-                    email: '',
-                    password : ''
-                  } )
-              }else{
-                  alert('please provide required credentials')
-              }
+                
             }
             }
           >

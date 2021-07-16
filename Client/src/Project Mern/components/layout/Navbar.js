@@ -12,7 +12,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import {Link} from 'react-router-dom';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
@@ -62,9 +62,8 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
-  
-    const [auth, setAuth] = useState(false)
 
+  let auth = useSelector( data => data.auth.isAuthenticated)
 
     const NonAuthenticated = (
       <>
