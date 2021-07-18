@@ -88,7 +88,7 @@ export default function BackToTop(props) {
               <Link style={{color:'red'}} to='/post'><Typography variant="h6">Post</Typography></Link>
           </Toolbar>
           <Toolbar>
-              <Link style={{color:'red',marginLeft: '40rem'}} to='/form'><Typography variant="h6" onClick = {() => dispatch({ type: LOGOUT })}>Sign Out</Typography></Link>
+              <Link style={{color:'red',marginLeft: '40rem'}} to='/'><Typography variant="h6" onClick = {() => dispatch({ type: LOGOUT })}>Sign Out</Typography></Link>
           </Toolbar>
           
       </>
