@@ -1,12 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Typewriter from 'typewriter-effect';
+import Typewriter from 'typewriter-effect'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 const Landing = () => {
+
+    let auth = useSelector( data => data.auth.isAuthenticated)
+
+    if (auth) {
+        return <Redirect to="/dashboard" />;
+    }
+
     return (
         <>
             <div className = 'landing' style ={{display: 'flex', justifyContent: 'center'}}>
                     <div>
+                        <br />
                         <h2><Typewriter
                         options={{
                             strings: ['Welcome to Dev Media', 'All your soft works matter'],
@@ -21,6 +31,7 @@ const Landing = () => {
                         <br />
                         <Link to = '/register'><button className = 'btn' style ={{backgroundColor: 'coral'}}>Sign up</button></Link>
                         <Link to = '/login'><button className = 'btn'style ={{backgroundColor: 'greenyellow'}}>Log in</button></Link>
+                        
                     </div>
             </div>
         </>

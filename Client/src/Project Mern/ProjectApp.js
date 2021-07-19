@@ -9,6 +9,7 @@ import Register from './components/auth/Register'
 import store from './store'
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
+import Dash from './components/dashboard/Dashboard'
 
 const ProjectApp = () => {
 
@@ -40,6 +41,10 @@ const ProjectApp = () => {
 
                             <Route exact path = '/register'>
                                 <Register/>
+                            </Route>
+
+                            <Route exact path = '/dashboard'>
+                                <Dash />
                             </Route>
 
                         </Switch>

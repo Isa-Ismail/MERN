@@ -17,6 +17,7 @@ import axios from 'axios'
 import { login } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import Alert from '../layout/Alert'
+import { Redirect } from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -55,6 +56,8 @@ export default function SignIn() {
   
   const classes = useStyles();
 
+  let auth = useSelector( data => data.auth.isAuthenticated)
+
   const dispatch = useDispatch()
 
   const [form, setForm] = useState ({
@@ -63,6 +66,10 @@ export default function SignIn() {
   })
 
   const {email, password} = form
+
+  if (auth) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container component="main" maxWidth="xs">

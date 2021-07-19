@@ -18,6 +18,7 @@ import setAlert from '../../actions/alert'
 import { useSelector, useDispatch } from 'react-redux';
 import Alert from '../layout/Alert'
 import registerUser from '../../actions/auth'
+import { Redirect } from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -57,6 +58,8 @@ export default function SignUp() {
 
   const dispatch = useDispatch()
 
+  let auth = useSelector( data => data.auth.isAuthenticated)
+
   const [register, setRegister] = useState ({
       name: '',
       email: '',
@@ -64,6 +67,10 @@ export default function SignUp() {
   })
   
   const {name, email, password} = register
+
+  if (auth) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container component="main" maxWidth="xs">
