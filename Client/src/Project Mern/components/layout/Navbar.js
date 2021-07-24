@@ -14,7 +14,7 @@ import Zoom from '@material-ui/core/Zoom';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { LOGOUT } from '../../actions/types'
+import { logout } from '../../actions/auth'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,7 +88,7 @@ export default function BackToTop(props) {
               <Link style={{color:'red'}} to='/post'><Typography variant="h6">Post</Typography></Link>
           </Toolbar>
           <Toolbar>
-              <Link style={{color:'red',marginLeft: '40rem'}} to='/'><Typography variant="h6" onClick = {() => dispatch({ type: LOGOUT })}>Sign Out</Typography></Link>
+              <Link style={{color:'red',marginLeft: '40rem'}} to='/'><Typography variant="h6" onClick = {() =>  dispatch(logout())}>Sign Out</Typography></Link>
           </Toolbar>
           
       </>
