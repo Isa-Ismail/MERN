@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { getCurrentProfile } from '../../actions/profile'
 import Spinner from '../layout/Spinner'
+import { Link } from 'react-router-dom'
 import { FaUser, FaLaptop, FaSadCry } from 'react-icons/fa'
 const Dashboard = () => {
 
@@ -36,6 +37,7 @@ const Dashboard = () => {
                        :
                        <>
                         <h2><FaSadCry /> You didn't setup a profile yet</h2>
+                        <Link to = '/dada'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Create Profile</button></Link>
                        </>
                        }
                     </div> 

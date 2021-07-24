@@ -211,7 +211,7 @@ p {
 
 .btn {
     display: inline-block;
-    background: greenyellow;
+    background: cadetblue;
     color: var(--clr-white);
     padding: 0.25rem 0.75rem;
     border-radius: var(--radius);
