@@ -37,7 +37,7 @@ const Dashboard = () => {
                        :
                        <>
                         <h2><FaSadCry /> You didn't setup a profile yet</h2>
-                        <Link to = '/dada'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Create Profile</button></Link>
+                        <Link to = '/createprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Create Profile</button></Link>
                        </>
                        }
                     </div> 

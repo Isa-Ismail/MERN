@@ -10,6 +10,7 @@ import store from './store'
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
 import Dash from './components/dashboard/Dashboard'
+import CreateProfile from './components/profile-forms/CreateProfile'
 
 const ProjectApp = () => {
 
@@ -45,6 +46,10 @@ const ProjectApp = () => {
 
                             <Route exact path = '/dashboard'>
                                 <Dash />
+                            </Route>
+
+                            <Route exact path = '/createprofile'>
+                                <CreateProfile />
                             </Route>
 
                         </Switch>
