@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { FaUser, FaEdit } from 'react-icons/fa';
+import { FaUser, FaEdit, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LayoutTextFields() {
+
+  const dispatch = useDispatch()
+
+  const [ social, toggleSocial ] = useState( false )
+
+  const [ formData, setFormData ] = useState( {
+
+  } )
+
   const classes = useStyles();
 
   return (
@@ -26,7 +36,7 @@ export default function LayoutTextFields() {
         <h3 style = {{color: 'cadetblue'}}><FaEdit/> Lets get your bios to complete your profile</h3>
         <p>* required fields</p>
       </div>
-      <div>
+      <div style = {{marginLeft: '10rem'}}>
         <TextField
           id="standard-full-width"
           label="Profession"
@@ -38,7 +48,7 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
           label="Company"
@@ -50,7 +60,7 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
           label="Website"
@@ -62,7 +72,7 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
           label="Location"
@@ -74,19 +84,19 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
           label="Skills"
           style={{ margin: 8 }}
-          placeholder="*"
+          placeholder="* separated by comma"
           helperText=""
           fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
           label="Github Username"
@@ -98,8 +108,95 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,
           }}
+        /><br></br> <br></br> <br></br>
+        <TextField
+          id="standard-full-width"
+          label="Tell us something about yourself"
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
+        <br></br>
+        <br></br><br></br>
+        <p className = 'mark' onClick = {() => toggleSocial(!social)}>Click here to add social links (optional)</p>
         
+        
+        {social ?
+        <><FaFacebook style ={{color: 'blue', fontSize: '2rem'}} />
+          <TextField
+          id="standard-full-width"
+          label=""
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <br></br><br></br><br></br><br></br>
+        <FaInstagram style ={{color: 'red', fontSize: '2rem'}} />
+        <TextField
+          id="standard-full-width"
+          label={FaInstagram}
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        /><br></br><br></br><br></br><br></br>
+        <FaLinkedin style ={{color: 'blue', fontSize: '2rem'}} />
+        <TextField
+          id="standard-full-width"
+          label= {FaLinkedin}
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        /><br></br><br></br><br></br><br></br>
+        <FaTwitter style ={{color: 'cadetblue', fontSize: '2rem'}} />
+        <TextField
+          id="standard-full-width"
+          label={FaTwitter}
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        /><br></br><br></br><br></br><br></br>
+        <FaYoutube style ={{color: 'red', fontSize: '2rem'}} />
+        <TextField
+          id="standard-full-width"
+          label={FaYoutube}
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        </> : null}
+        <br></br><br></br><br></br><br></br>
+
+        <button className = 'btn' style = {{backgroundColor: 'green'}}>Submit</button>
        
       </div>
     </div>

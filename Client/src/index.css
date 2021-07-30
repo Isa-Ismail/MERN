@@ -1016,6 +1016,11 @@ nav {
     margin-bottom: .3em;
 }
 
+.mark {
+    cursor: pointer;
+    color: cadetblue
+}
+
 
 /* .slideIn-enter {
     position: absolute;
