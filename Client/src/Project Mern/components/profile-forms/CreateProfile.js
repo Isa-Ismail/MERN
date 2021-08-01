@@ -23,10 +23,46 @@ export default function LayoutTextFields() {
   const [ social, toggleSocial ] = useState( false )
 
   const [ formData, setFormData ] = useState( {
-
+    company: '',
+    website: '',
+    location: '',
+    status: '',
+    skills: '',
+    githubusername: '',
+    bio: '',
+    twitter: '',
+    facebook: '',
+    linkedin: '',
+    youtube: '',
+    instagram: ''
   } )
 
+  const {
+    company,
+    website,
+    location,
+    status,
+    skills,
+    githubusername,
+    bio,
+    twitter,
+    facebook,
+    linkedin,
+    youtube,
+    instagram
+  } = formData
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    //dispatch(createProfile(formData, history, profile ? true : false));
+  };
+
   const classes = useStyles();
+
+  console.log(formData)
 
   return (
     <div className={classes.root} style = {{marginLeft: '3rem', marginBottom: '3rem', marginTop: '3rem'}}>
@@ -39,6 +75,9 @@ export default function LayoutTextFields() {
       <div style = {{marginLeft: '10rem'}}>
         <TextField
           id="standard-full-width"
+          name="status"
+          value= {status}
+          onChange={ onChange }
           label="Profession"
           style={{ margin: 8 }}
           placeholder="*"
@@ -51,6 +90,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name="company"
+          value= {company}
+          onChange={ onChange }
           label="Company"
           style={{ margin: 8 }}
           placeholder=""
@@ -63,6 +105,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name="website"
+          value= {website}
+          onChange={ onChange }
           label="Website"
           style={{ margin: 8 }}
           placeholder=""
@@ -75,6 +120,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name="location"
+          value= {location}
+          onChange={ onChange }
           label="Location"
           style={{ margin: 8 }}
           placeholder=""
@@ -87,6 +135,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name="skills"
+          value= {skills}
+          onChange={ onChange }
           label="Skills"
           style={{ margin: 8 }}
           placeholder="* separated by comma"
@@ -99,6 +150,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name= "githubusername"
+          value= {githubusername}
+          onChange={ onChange }
           label="Github Username"
           style={{ margin: 8 }}
           placeholder=""
@@ -111,6 +165,9 @@ export default function LayoutTextFields() {
         /><br></br> <br></br> <br></br>
         <TextField
           id="standard-full-width"
+          name="bio"
+          value= {bio}
+          onChange={ onChange }
           label="Tell us something about yourself"
           style={{ margin: 8 }}
           placeholder=""
@@ -130,6 +187,9 @@ export default function LayoutTextFields() {
         <><FaFacebook style ={{color: 'blue', fontSize: '2rem'}} />
           <TextField
           id="standard-full-width"
+          name="facebook"
+          value= {facebook}
+          onChange={ onChange }
           label=""
           style={{ margin: 8 }}
           placeholder=""
@@ -144,7 +204,10 @@ export default function LayoutTextFields() {
         <FaInstagram style ={{color: 'red', fontSize: '2rem'}} />
         <TextField
           id="standard-full-width"
-          label={FaInstagram}
+          name="instagram"
+          value= {instagram}
+          onChange={ onChange }
+          label=""
           style={{ margin: 8 }}
           placeholder=""
           helperText=""
@@ -157,7 +220,10 @@ export default function LayoutTextFields() {
         <FaLinkedin style ={{color: 'blue', fontSize: '2rem'}} />
         <TextField
           id="standard-full-width"
-          label= {FaLinkedin}
+          name="linkedin"
+          value= {linkedin}
+          onChange={ onChange }
+          label= ""
           style={{ margin: 8 }}
           placeholder=""
           helperText=""
@@ -170,7 +236,10 @@ export default function LayoutTextFields() {
         <FaTwitter style ={{color: 'cadetblue', fontSize: '2rem'}} />
         <TextField
           id="standard-full-width"
-          label={FaTwitter}
+          name="twitter"
+          value= {twitter}
+          onChange={ onChange }
+          label=""
           style={{ margin: 8 }}
           placeholder=""
           helperText=""
@@ -183,7 +252,10 @@ export default function LayoutTextFields() {
         <FaYoutube style ={{color: 'red', fontSize: '2rem'}} />
         <TextField
           id="standard-full-width"
-          label={FaYoutube}
+          name="youtube"
+          value= {youtube}
+          onChange={ onChange }
+          label=""
           style={{ margin: 8 }}
           placeholder=""
           helperText=""
@@ -196,7 +268,7 @@ export default function LayoutTextFields() {
         </> : null}
         <br></br><br></br><br></br><br></br>
 
-        <button className = 'btn' style = {{backgroundColor: 'green'}}>Submit</button>
+        <button className = 'btn' style = {{backgroundColor: 'green'}} onClick ={ onSubmit }>Submit</button>
        
       </div>
     </div>
