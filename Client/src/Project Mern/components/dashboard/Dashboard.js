@@ -5,6 +5,8 @@ import { getCurrentProfile } from '../../actions/profile'
 import Spinner from '../layout/Spinner'
 import { Link } from 'react-router-dom'
 import { FaUser, FaLaptop, FaSadCry } from 'react-icons/fa'
+import Alert from '../layout/Alert'
+
 const Dashboard = () => {
 
     let auth = useSelector( data => data.auth.isAuthenticated)
@@ -28,6 +30,7 @@ const Dashboard = () => {
                     { loading && profile === null ? <Spinner /> :
                     <div className = 'dashboard'>
                        <h1>Dashboard</h1>
+                       <Alert />
                        <h2><FaUser /> Welcome {user && user.name}</h2>
                        {
                        profile?

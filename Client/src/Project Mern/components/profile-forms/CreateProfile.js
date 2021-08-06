@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FaUser, FaEdit, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { createProfile } from '../../actions/profile';
+import { Link, Redirect } from 'react-router-dom';
+import Alert from '../layout/Alert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,7 +60,8 @@ export default function LayoutTextFields() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    //dispatch(createProfile(formData, history, profile ? true : false));
+    dispatch(createProfile(formData));
+    <Redirect to = '/dashboard' />
   };
 
   const classes = useStyles();
@@ -73,6 +77,7 @@ export default function LayoutTextFields() {
         <p>* required fields</p>
       </div>
       <div style = {{marginLeft: '10rem'}}>
+        <Alert />
         <TextField
           id="standard-full-width"
           name="status"
