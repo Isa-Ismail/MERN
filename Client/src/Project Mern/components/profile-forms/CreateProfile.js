@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LayoutTextFields() {
 
+  const [ sub, setSub ] = useState(false)
+
   const dispatch = useDispatch()
 
   const [ social, toggleSocial ] = useState( false )
@@ -60,8 +62,13 @@ export default function LayoutTextFields() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createProfile(formData));
-    <Redirect to = '/dashboard' />
+    if(!status || !skills){
+      alert('profession and skills are required')
+    }else{
+      dispatch(createProfile(formData));
+      setSub(true)
+    }
+    
   };
 
   const classes = useStyles();
@@ -69,6 +76,8 @@ export default function LayoutTextFields() {
   console.log(formData)
 
   return (
+    <>
+    {sub ? <Redirect to = '/dashboard' />:
     <div className={classes.root} style = {{marginLeft: '3rem', marginBottom: '3rem', marginTop: '3rem'}}>
       <div>
         <h1 style = {{fontFamily: 'cursive', color: 'cadetblue', fontSize: '50px'}}>Create your Profile</h1>
@@ -277,5 +286,7 @@ export default function LayoutTextFields() {
        
       </div>
     </div>
+    }
+    </>
   );
 }
