@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FaUser, FaEdit, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { createProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile } from '../../actions/profile';
 import { Link, Redirect } from 'react-router-dom';
 import Alert from '../layout/Alert';
 
@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LayoutTextFields() {
+
+  let { loading, profile } = useSelector( data => data.profile)
 
   const [ sub, setSub ] = useState(false)
 
@@ -75,6 +77,27 @@ export default function LayoutTextFields() {
 
   console.log(formData)
 
+  useEffect(() => {
+
+    dispatch(getCurrentProfile())
+    
+    console.log(profile)
+
+    setFormData({company: loading || !profile.company ? '' : profile.company,
+    website: loading || !profile.website ? '' : profile.website,
+    location: loading || !profile.location ? '' : profile.location,
+    status: loading || !profile.status ? '' : profile.status,
+    skills: loading || !profile.skills ? '' : profile.skills.join(','),
+    githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
+    bio: loading || !profile.bio ? '' : profile.bio,
+    twitter: loading || !profile.twitter ? '' : profile.twitter,
+    facebook: loading || !profile.facebook ? '' : profile.facebook,
+    linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
+    youtube: loading || !profile.youtube ? '' : profile.youtube,
+    instagram: loading || !profile.instagram ? '' : profile.instagram})
+  },[])
+  
+
   return (
     <>
     {sub ? <Redirect to = '/dashboard' />:
@@ -88,7 +111,7 @@ export default function LayoutTextFields() {
       <div style = {{marginLeft: '10rem'}}>
         <Alert />
         <TextField
-          id="standard-full-width"
+          // id="standard-full-width"
           name="status"
           value= {status}
           onChange={ onChange }
@@ -103,7 +126,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          // id="standard-full-width"
           name="company"
           value= {company}
           onChange={ onChange }
@@ -118,7 +141,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          // id="standard-full-width"
           name="website"
           value= {website}
           onChange={ onChange }
@@ -133,7 +156,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          //id="standard-full-width"
           name="location"
           value= {location}
           onChange={ onChange }
@@ -148,7 +171,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          //id="standard-full-width"
           name="skills"
           value= {skills}
           onChange={ onChange }
@@ -163,7 +186,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          // id="standard-full-width"
           name= "githubusername"
           value= {githubusername}
           onChange={ onChange }
@@ -178,7 +201,7 @@ export default function LayoutTextFields() {
           }}
         /><br></br> <br></br> <br></br>
         <TextField
-          id="standard-full-width"
+          // id="standard-full-width"
           name="bio"
           value= {bio}
           onChange={ onChange }
