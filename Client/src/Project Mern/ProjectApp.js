@@ -12,6 +12,8 @@ import setAuthToken from './utils/setAuthToken'
 import Dash from './components/dashboard/Dashboard'
 import EditProfile from './components/profile-forms/EditProfile'
 import CreateProfile from './components/profile-forms/CreateProfile'
+import Education from './components/profile-forms/Education'
+import Experience from './components/profile-forms/Experience'
 // import Spinner from './components/layout/Spinner'
 
 const ProjectApp = () => {
@@ -56,6 +58,14 @@ const ProjectApp = () => {
 
                             <Route exact path = '/createprofile'>
                                 <CreateProfile />
+                            </Route>
+
+                            <Route exact path = '/education'>
+                                <Education />
+                            </Route>
+
+                            <Route exact path = '/experience'>
+                                <Experience />
                             </Route>
 
                         </Switch>

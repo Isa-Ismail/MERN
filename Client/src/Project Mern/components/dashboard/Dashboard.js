@@ -37,8 +37,8 @@ const Dashboard = () => {
                        <>
                         <h2><FaLaptop /> Here's your profile dashboard</h2>
                         <Link to = '/editprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Edit Profile</button></Link>
-                        <Link to = '/addexp'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Experience</button></Link>
-                        <Link to = '/addedu'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Education</button></Link>
+                        <Link to = '/experience'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Experience</button></Link>
+                        <Link to = '/education'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Education</button></Link>
                        </>
                        :
                        <>

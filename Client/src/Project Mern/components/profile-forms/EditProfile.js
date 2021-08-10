@@ -100,7 +100,7 @@ export default function LayoutTextFields() {
         <h3 style = {{color: 'cadetblue'}}><FaEdit/> Lets get your bios to complete your profile</h3>
         <p>* required fields</p>
       </div>
-      <div style = {{marginLeft: '10rem'}}>
+      <div style = {{marginLeft: '10rem', width: '30rem'}}>
         <Alert />
         <TextField
           // id="standard-full-width"
