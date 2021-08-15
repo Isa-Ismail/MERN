@@ -4,8 +4,10 @@ import { Redirect } from 'react-router-dom'
 import { getCurrentProfile } from '../../actions/profile'
 import Spinner from '../layout/Spinner'
 import { Link } from 'react-router-dom'
-import { FaUser, FaLaptop, FaSadCry } from 'react-icons/fa'
+import { FaUser, FaLaptop, FaSadCry, FaGraduationCap, FaBriefcase } from 'react-icons/fa'
 import Alert from '../layout/Alert'
+import Edu from '../dashboard/ListEdu'
+import Exp from '../dashboard/ListExp'
 
 const Dashboard = () => {
 
@@ -16,6 +18,10 @@ const Dashboard = () => {
     let loading = useSelector( data => data.profile.loading)
     
     let profile = useSelector( data => data.profile.profile)
+
+    let edu = useSelector( data =>data.profile.profile && data.profile.profile.education)
+
+    let exp = useSelector( data => data.profile.profile && data.profile.profile.experience)
     
     const dispatch = useDispatch()
 
@@ -24,7 +30,7 @@ const Dashboard = () => {
     },[getCurrentProfile])
 
     return (
-        <div style = {{height: '35rem'}}>
+        <div>
             { !auth ? <Redirect to = '/' /> : 
                 <>
                     { loading && profile === null ? <Spinner /> :
@@ -46,10 +52,16 @@ const Dashboard = () => {
                         <Link to = '/createprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Create Profile</button></Link>
                        </>
                        }
+                      {edu? <> <h2>Education List <FaGraduationCap /></h2>
+                       <Edu /></>: <></>}
+                       <br></br>
+                       {exp? <> <h2>Experience List <FaBriefcase /></h2>
+                       <Exp /></>: <></>}
                     </div> 
                     }
                 </>
             }
+            <br></br><br></br>
         </div>
     )
 }

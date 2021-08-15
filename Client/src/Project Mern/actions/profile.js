@@ -65,7 +65,6 @@ export const addExperience = (formData) => async (dispatch) => {
         type: UPDATE_PROFILE,
         payload: res.data
       });
-      dispatch(getCurrentProfile())
       dispatch(setAlert('Experience Added', 'success'));
   
     } catch (err) {
@@ -92,7 +91,7 @@ export const addExperience = (formData) => async (dispatch) => {
         type: UPDATE_PROFILE,
         payload: res.data
       });
-      dispatch(getCurrentProfile())
+  
       dispatch(setAlert('Education Added', 'success'));
 
     } catch (err) {
