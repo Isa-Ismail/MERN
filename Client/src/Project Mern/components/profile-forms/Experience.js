@@ -7,6 +7,7 @@ import { createProfile, getCurrentProfile } from '../../actions/profile';
 import { Link, Redirect } from 'react-router-dom';
 import Alert from '../layout/Alert';
 import Checkbox from '@material-ui/core/Checkbox';
+import { addExperience } from '../../actions/profile';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +53,7 @@ export default function LayoutTextFields() {
     if(!title || !company){
       alert('Job title and company info are required')
     }else{
-      dispatch(createProfile(formData));
+      dispatch(addExperience(formData))
       setSub(true)
     }
     

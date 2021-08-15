@@ -3,10 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FaUser, FaEdit, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import { addExperience, createProfile, getCurrentProfile } from '../../actions/profile';
 import { Link, Redirect } from 'react-router-dom';
 import Alert from '../layout/Alert';
 import Checkbox from '@material-ui/core/Checkbox';
+import { addEducation } from '../../actions/profile';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +61,7 @@ export default function LayoutTextFields() {
     if(!school || !degree){
       alert('School and Degree info are required')
     }else{
-      dispatch(createProfile(formData));
+      dispatch(addEducation(formData))
       setSub(true)
     }
     
