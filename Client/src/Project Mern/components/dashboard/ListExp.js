@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
+import { Button } from '@material-ui/core';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -50,7 +51,7 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell align="right">Company</StyledTableCell>
-            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">Title</StyledTableCell>
             <StyledTableCell align="right">Duration (years)</StyledTableCell>
             <StyledTableCell align="right">Description</StyledTableCell>
             <StyledTableCell align="right">Remove</StyledTableCell>
@@ -62,10 +63,10 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.company}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.status}</StyledTableCell>
+              <StyledTableCell align="right">{row.title}</StyledTableCell>
               <StyledTableCell align="right">{row.from} - {row.current === false ? row.to: 'Current'}</StyledTableCell>
               <StyledTableCell align="right">{row.description ? row.description : 'NaN'}</StyledTableCell>
-              <button className = 'btn' style ={{backgroundColor: 'red', marginLeft: '6rem'}}><FaTrash /></button>
+              <Button style ={{backgroundColor: 'cadetblue', padding: '.9rem'}}><FaTrash /></Button>
             </StyledTableRow>
           ))}
         </TableBody>
