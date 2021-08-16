@@ -54,7 +54,9 @@ export default function LayoutTextFields() {
       alert('Job title and company info are required')
     }else{
       dispatch(addExperience(formData))
-      setSub(true)
+      setTimeout(() => {
+        setSub(true)
+      }, 1000)
     }
     
   };

@@ -62,7 +62,9 @@ export default function LayoutTextFields() {
       alert('School and Degree info are required')
     }else{
       dispatch(addEducation(formData))
-      setSub(true)
+      setTimeout(() => {
+        setSub(true)
+      }, 1000)
     }
     
   };

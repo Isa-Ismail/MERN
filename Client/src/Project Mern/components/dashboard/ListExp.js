@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
 import { Button } from '@material-ui/core';
+import { deleteExperience } from '../../actions/profile';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -66,7 +67,7 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.title}</StyledTableCell>
               <StyledTableCell align="right">{row.from} - {row.current === false ? row.to: 'Current'}</StyledTableCell>
               <StyledTableCell align="right">{row.description ? row.description : 'NaN'}</StyledTableCell>
-              <Button style ={{backgroundColor: 'cadetblue', padding: '.9rem'}}><FaTrash /></Button>
+              <Button onClick ={() => dispatch(deleteExperience(row._id))} style ={{backgroundColor: 'cadetblue', padding: '.9rem'}}><FaTrash /></Button>
             </StyledTableRow>
           ))}
         </TableBody>
