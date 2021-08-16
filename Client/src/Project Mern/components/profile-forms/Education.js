@@ -64,7 +64,7 @@ export default function LayoutTextFields() {
       dispatch(addEducation(formData))
       setTimeout(() => {
         setSub(true)
-      }, 1000)
+      }, 1500)
     }
     
   };

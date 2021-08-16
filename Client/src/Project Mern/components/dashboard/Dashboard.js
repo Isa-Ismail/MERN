@@ -53,7 +53,7 @@ const Dashboard = () => {
                        </>
                        }
                       {edu? <> <h2>Education List <FaGraduationCap /></h2>
-                       <Edu /></>: <><Spinner /></>}
+                       <Edu /></>: <><Spinner style ={{marginTop: '10rem'}}/></>}
                        <br></br>
                        {exp? <> <h2>Experience List <FaBriefcase /></h2>
                        <Exp /></>: <></>}
