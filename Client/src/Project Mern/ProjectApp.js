@@ -14,6 +14,7 @@ import EditProfile from './components/profile-forms/EditProfile'
 import CreateProfile from './components/profile-forms/CreateProfile'
 import Education from './components/profile-forms/Education'
 import Experience from './components/profile-forms/Experience'
+import Profiles from './components/profiles/Profiles'
 // import Spinner from './components/layout/Spinner'
 
 const ProjectApp = () => {
@@ -66,6 +67,10 @@ const ProjectApp = () => {
 
                             <Route exact path = '/experience'>
                                 <Experience />
+                            </Route>
+
+                            <Route exact path = '/developers'>
+                                <Profiles />
                             </Route>
 
                         </Switch>
