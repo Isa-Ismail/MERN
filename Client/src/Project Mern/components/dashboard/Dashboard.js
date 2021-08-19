@@ -42,9 +42,9 @@ const Dashboard = () => {
                        profile?
                        <>
                         <h2><FaLaptop /> Here's your profile dashboard</h2>
-                        <Link to = '/editprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Edit Profile</button></Link>
+                        <Link to = '/editprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Edit Profile</button></Link><br></br>
+                        <Link to = '/education'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem', marginRight: '25rem' }}>Add Education</button></Link>
                         <Link to = '/experience'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Experience</button></Link>
-                        <Link to = '/education'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Add Education</button></Link>
                        </>
                        :
                        <>
@@ -52,12 +52,13 @@ const Dashboard = () => {
                         <Link to = '/createprofile'><button className = 'btn' style = {{ backgroundColor: 'cadetblue',  borderRadius: '.2rem', marginBottom: '2rem' }}>Create Profile</button></Link>
                        </>
                        }
-                      {edu? <> <h2>Education List <FaGraduationCap /></h2>
-                       <Edu /></>: <><Spinner style ={{marginTop: '10rem'}}/></>}
+                       <div style = {{display: 'flex', flexWrap: 'wrap'}}>
+                      {edu? <>
+                       <Edu /></>: <><Spinner /></>}
                        <br></br>
-                       {exp? <> <h2>Experience List <FaBriefcase /></h2>
+                       {exp? <>
                        <Exp /></>: <></>}
-                       
+                       </div>
                     </div> 
                     }
                 </>

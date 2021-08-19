@@ -32,7 +32,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    minWidth: 400,
   },
 });
 
@@ -47,7 +47,7 @@ export default function CustomizedTables() {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper} style={{width: '70rem', marginLeft: '5rem'}}>
+    <TableContainer component={Paper} style={{width: '34rem', marginLeft: '5rem'}}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -55,7 +55,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="right">Degree</StyledTableCell>
             <StyledTableCell align="right">Duration (years)</StyledTableCell>
             <StyledTableCell align="right">Description</StyledTableCell>
-            <StyledTableCell align="right">Remove</StyledTableCell>
+            <StyledTableCell align="right">Action</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -67,7 +67,7 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.degree}</StyledTableCell>
               <StyledTableCell align="right">{row.from} - {row.current === false ? row.to: 'Current'}</StyledTableCell>
               <StyledTableCell align="right">{row.description ? row.description : 'NaN'}</StyledTableCell>
-              <Button onClick ={() => dispatch(deleteEducation(row._id))} style ={{backgroundColor: 'cadetblue', padding: '.9rem'}}><FaTrash /></Button>
+              <Button onClick ={() => dispatch(deleteEducation(row._id))} style ={{backgroundColor: 'wheat', padding: '.8rem', marginTop:'1.3rem'}}><FaTrash style ={{color: 'darkred'}}/></Button>
             </StyledTableRow>
           ))}
         </TableBody>
