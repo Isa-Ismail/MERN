@@ -1,5 +1,6 @@
 import React from 'react'
 import './play/play_css/foooter.css'
+import Logo from '../../../img/Logo.jpg'
 const Footer = () => {
 
     const [subscribe, setSubscribe] = React.useState( {
@@ -12,7 +13,7 @@ const Footer = () => {
              <footer className="footer">
                 <div className="logo-contact">
                     <div className="logo">
-                    <img src="https://image.freepik.com/free-vector/letter-f-logo-abstract_8677-73.jpg" alt="littlecake logo" />
+                    <img src= {Logo} alt="littlecake logo" />
                     </div>
                     <h2>About Us</h2>
                     <p>Our goal is a healthy and long life on this beautiful planet in this part of the sweet Universe.</p>
