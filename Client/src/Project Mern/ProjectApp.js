@@ -15,6 +15,7 @@ import CreateProfile from './components/profile-forms/CreateProfile'
 import Education from './components/profile-forms/Education'
 import Experience from './components/profile-forms/Experience'
 import Profiles from './components/profiles/Profiles'
+import Profile from './components/profile/Profile'
 // import Spinner from './components/layout/Spinner'
 
 const ProjectApp = () => {
@@ -71,6 +72,10 @@ const ProjectApp = () => {
 
                             <Route exact path = '/developers'>
                                 <Profiles />
+                            </Route>
+
+                            <Route exact path = '/profile/:id'>
+                                <Profile />
                             </Route>
 
                         </Switch>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfiles } from '../../actions/profile'
 import Spinner from '../layout/Spinner'
+import ProfileItem from './ProfileItem'
 
 const Profiles = () => {
 
@@ -19,12 +20,7 @@ const Profiles = () => {
         <div>
             {
             profiles.map( profile => {
-                    return(
-                    <div id = {profile._id} style ={{marginTop:'2rem'}}>
-                        <p>{profile.user.name}</p>
-                    </div>
-                    
-                    )
+                    return(<ProfileItem key ={profile._id} profile = {profile}/>)
             })
             }
         </div>}
