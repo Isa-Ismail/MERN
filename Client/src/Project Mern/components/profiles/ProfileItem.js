@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(0.5),
     },
+    borderStyle: 'solid',
+    boxShadow: '1px 1px 3px 3px teal',
+    height: '35rem',
+    borderColor: 'transparent',
+    backgroundColor: 'wheat'
   },
 }));
 
@@ -35,7 +40,7 @@ const ProfileItem = ({
     };
   
   return (
-    <div style = {{display: 'flex', marginTop: '3rem', marginLeft: '4rem',marginBottom:'2rem', backgroundColor: 'hsl(212, 33%, 89%)', width: '40rem', borderRadius: '.9rem'}}>
+    <div className ={classes.root}>
       <img src={avatar} alt='' style ={{borderRadius: '50%', margin: '2rem'}} />
       <div style = {{textAlign: 'right'}}>
         <h2 style ={{color: 'darkslateblue', marginTop: '2rem'}}>{name}</h2>
