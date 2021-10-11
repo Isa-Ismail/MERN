@@ -134,7 +134,7 @@ h2 {
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 400;
-    color: wheat
+    color: black
 }
 
 h3,
@@ -145,7 +145,7 @@ h6 {
     font-size: 17px;
     margin-bottom: 20px;
     font-weight: 500;
-    color: wheat
+    color: black
 }
 
 h1 {
@@ -1052,3 +1052,11 @@ nav {
     left:-600px;
     transition: left 800ms;
 } */
+
+
+/*Profile DashBoard*/
+.img{
+height: 250px;
+width: 250px;
+border-radius: 50%;
+}

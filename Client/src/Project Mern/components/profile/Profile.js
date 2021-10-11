@@ -7,12 +7,19 @@ const Profile = () => {
     const { id } = useParams()
 
     const useStyles = makeStyles((theme) => ({
-        root: {
+        roota: {
           width: '100%',
           height: '20%',
           margin: '0px',
-          display: 'flex',
-          backgroundColor: 'white'
+          display: 'flex'
+        },
+        left:{
+            height: '30rem',
+            padding: '1.5rem',
+            backgroundColor: 'hsl(205, 90%, 76%)'
+        },
+        info: {
+
         }
     }));
 
@@ -27,10 +34,20 @@ const Profile = () => {
     },[])
     return (
         <>
-        <div className = {classes.root}>
-            <h2>{filterd.user.name}</h2>
-            <p>{filterd.status}</p>
-        </div>
+                <div className={classes.roota}>
+                    
+                    <div className= {classes.left}>
+                        <img src= {filterd.user.avatar} alt ="" className = "img"></img>
+                        <h2 style={{color: 'black'}}>{filterd.user.name}</h2>
+                        <h2>{filterd.status}</h2>
+                    </div>
+                
+                {/*Main element*/}
+                    <div className={classes.info}>
+                          
+                    </div>
+                
+                </div>
         </>
         )
 }

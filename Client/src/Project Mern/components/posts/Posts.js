@@ -21,7 +21,18 @@ const Posts = () => {
 
     return (
         <div className = {classes.root}>
-            
+            <div>
+            {posts.map(post => {
+              return(
+                <>
+                
+                </>
+              )
+            })}
+            </div>
+            <div>
+    
+            </div>
         </div>
     )
 }
