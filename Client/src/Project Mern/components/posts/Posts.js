@@ -25,7 +25,12 @@ const Posts = () => {
             {posts.map(post => {
               return(
                 <>
-                
+                <h3>{}</h3>
+                <div style = {{display: 'flex'}}>
+                  <h5>{}</h5>
+                  <img src = {}/>
+                </div>
+                <p>{}</p>
                 </>
               )
             })}
