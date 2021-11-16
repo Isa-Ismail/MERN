@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import { useSelector, useDispatch } from 'react-redux'
+import { getPosts } from '../../actions/post'
 
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
       margin: '0px',
-      backgroundImage:''
+      backgroundImage:'',
+      display: 'flex'
     }
   }));
 
@@ -16,27 +19,27 @@ const Posts = () => {
     const classes = useStyles()
 
     useEffect(() => {
-        
+        dispatch(getPosts())
     }, [])
 
     return (
         <div className = {classes.root}>
-            <div>
+            <div style={{width: '60%'}}>
+              <h1>Posts</h1>
             {posts.map(post => {
               return(
                 <>
-                <h3>{}</h3>
-                <div style = {{display: 'flex'}}>
-                  <h5>{}</h5>
-                  <img src = {}/>
+                  <img src = "" />
+                  <h3>{post.name}</h3>
+                <div>
+                  <p>{post.text}</p>
                 </div>
-                <p>{}</p>
                 </>
               )
             })}
             </div>
             <div>
-    
+              <div><h2>Post your thing</h2></div>
             </div>
         </div>
     )

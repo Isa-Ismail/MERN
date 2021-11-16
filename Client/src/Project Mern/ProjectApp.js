@@ -16,6 +16,7 @@ import Education from './components/profile-forms/Education'
 import Experience from './components/profile-forms/Experience'
 import Profiles from './components/profiles/Profiles'
 import Profile from './components/profile/Profile'
+import Post from './components/posts/Posts'
 // import Spinner from './components/layout/Spinner'
 
 const ProjectApp = () => {
@@ -72,6 +73,10 @@ const ProjectApp = () => {
 
                             <Route exact path = '/developers'>
                                 <Profiles />
+                            </Route>
+
+                            <Route exact path = '/post'>
+                                <Post />
                             </Route>
 
                             <Route exact path = '/profile/:id'>
