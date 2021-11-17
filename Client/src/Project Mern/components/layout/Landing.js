@@ -20,7 +20,7 @@ const Landing = () => {
                         <br />
                         <h2><Typewriter
                         options={{
-                            strings: ['Welcome to Dev Media', 'All your soft works matter'],
+                            strings: ['Group 01 (Ken Toshi) presents', 'Develeper media microblogging platform'],
                             autoStart: true,
                             loop: true,
                             deleteSpeed: 5,

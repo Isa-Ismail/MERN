@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
 import { addPost } from '../../actions/post';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +33,7 @@ export default function MultilineTextFields() {
           rows={4}
           variant="outlined"
         /><br></br>
-        <Button style = {{backgroundColor: 'khaki'}} onClick = {() => 0}>Post</Button>
+        <Button style = {{backgroundColor: 'khaki'}} onClick = {() => dispatch(addPost({text}))}>Post</Button>
       </div>
     </form>
   );

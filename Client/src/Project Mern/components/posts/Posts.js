@@ -37,7 +37,7 @@ const Posts = () => {
             <br></br>
             <br></br>
             <div style={{width: '50%', marginLeft: '21rem'}}>
-              <h2 style={{fontSize: '3rem'}}>Posted by people</h2>
+              <h2 style={{fontSize: '3rem'}}>Posted by users</h2>
             {posts.map(post => {
               return(<div style = {{margin: '2rem'}}>
                 <Card key={post._id} post={post} />
