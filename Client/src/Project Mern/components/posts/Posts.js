@@ -2,13 +2,16 @@ import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { getPosts } from '../../actions/post'
+import Card from './card'
+import Form from './postForm'
 
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
-      margin: '0px',
       backgroundImage:'',
-      display: 'flex'
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
     }
   }));
 
@@ -24,22 +27,22 @@ const Posts = () => {
 
     return (
         <div className = {classes.root}>
-            <div style={{width: '60%'}}>
-              <h1>Posts</h1>
-            {posts.map(post => {
-              return(
-                <>
-                  <img src = "" />
-                  <h3>{post.name}</h3>
-                <div>
-                  <p>{post.text}</p>
-                </div>
-                </>
-              )
-            })}
-            </div>
             <div>
-              <div><h2>Post your thing</h2></div>
+              <h2>Post your thing</h2>
+              <Form />
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <div style={{width: '50%', marginLeft: '21rem'}}>
+              <h2 style={{fontSize: '3rem'}}>Posted by people</h2>
+            {posts.map(post => {
+              return(<div style = {{margin: '2rem'}}>
+                <Card key={post._id} post={post} />
+              </div>)
+            })}
             </div>
         </div>
     )

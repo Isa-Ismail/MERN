@@ -27,7 +27,7 @@ const Profiles = () => {
         },[1100])
     }, [getProfiles])
     return (<>
-            <h2>Our Developers</h2>
+            <h2>Our application users</h2>
         { loading == true ? <Spinner />:
             <Grid container spacing={3} className={classes.root}>
             {
