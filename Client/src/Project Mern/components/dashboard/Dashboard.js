@@ -33,7 +33,7 @@ const Dashboard = () => {
         <div>
             { !auth ? <Redirect to = '/' /> : 
                 <>
-                    { loading && profile === null ? <Spinner /> :
+                    { loading ? <Spinner /> :
                     <div className = 'dashboard'>
                        <h1>Dashboard</h1>
                        <Alert />
@@ -54,7 +54,7 @@ const Dashboard = () => {
                        }
                        <div style = {{display: 'flex', flexWrap: 'wrap'}}>
                       {edu? <>
-                       <Edu /></>: <><Spinner /></>}
+                       <Edu /></>: <></>}
                        <br></br>
                        {exp? <>
                        <Exp /></>: <></>}
