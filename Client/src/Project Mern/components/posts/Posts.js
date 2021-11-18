@@ -28,7 +28,7 @@ const Posts = () => {
     return (
         <div className = {classes.root}>
             <div>
-              <h2>Post your thing</h2>
+              <h2>Post something</h2>
               <Form />
             </div>
             <br></br>
