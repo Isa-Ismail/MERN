@@ -19,6 +19,10 @@ export default function MultilineTextFields() {
   const dispatch = useDispatch();
 
   const [text, setText] = useState('')
+  const post = () => {
+    dispatch(addPost({text}))
+    setText('')
+  }
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -32,7 +36,7 @@ export default function MultilineTextFields() {
           rows={4}
           variant="outlined"
         /><br></br>
-        <Button style = {{backgroundColor: 'khaki'}} onClick = {() => dispatch(addPost({text}))}>Post</Button>
+        <Button style = {{backgroundColor: 'khaki'}} onClick = {post}>Post</Button>
       </div>
     </form>
   );

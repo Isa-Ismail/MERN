@@ -40,6 +40,11 @@ const Profile = () => {
                         <img src= {filterd.user.avatar} alt ="" className = "img"></img>
                         <h2 style={{color: 'black'}}>{filterd.user.name}</h2>
                         <h2>{filterd.status}</h2>
+                        <div style = {{display: 'flex'}}>
+                        {filterd.skills.map(skill=> {
+                            return(<p style ={{padding: '5px'}}>{skill} </p>)
+                        })}
+                        </div>
                     </div>
                 
                 {/*Main element*/}
